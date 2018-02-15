@@ -1,3 +1,29 @@
 // Place all the styles related to the BlocCast controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tv-show {
+    position: relative;
+    padding: 1em;
+    background-color: #cacaca;
+    border: 2px solid #ededed;
+    border-radius: 20px;
+    min-height: 314px;
+
+    img {
+        float: left;
+        margin-right: 12px;
+        border-radius: 5px;
+
+        -webkit-box-shadow: 10px 10px 26px 5px rgba(0,0,0,0.75);
+        -moz-box-shadow: 10px 10px 26px 5px rgba(0,0,0,0.75);
+        box-shadow: 10px 10px 26px 5px rgba(0,0,0,0.75);
+    }
+
+    .show-content .genre {
+        display: inline-block;
+        padding: 3px;
+        border: 1px solid grey;
+        border-radius: 4px;
+    }
+}
