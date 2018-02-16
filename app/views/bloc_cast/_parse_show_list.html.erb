@@ -1,10 +1,8 @@
 <% show_array.each do |show| %>
-    <% puts show.inspect %>
     <div class="tv-show">
-        <%= image_tag "http://image.tmdb.org/t/p/w185#{show["poster_path"]}" %>
+        <%= image_tag "http://image.tmdb.org/t/p/w185#{show["poster_path"]}", class: "big-image" %>
         <div class="show-content">
-            <h5><%= show["name"] %></h5>
-
+            <%= link_to show["name"], show_path(tv_id: show["id"]), class: "show-name-link" %>
             <div class="genres">
                 <% convert_genre(show["genre_ids"]).each do |genre| %>
                     <% if genre %>
