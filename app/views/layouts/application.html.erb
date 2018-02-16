@@ -4,8 +4,8 @@
     <title>BlocCast</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
   </head>
 
   <body>
@@ -14,22 +14,24 @@
         <div class="col-sm-12 page-header">
           <div class="header logo">
             <%= link_to root_path do %>
-               <%= image_tag "bloc_cast_logo.gif", width: '150px', height: '60px', class: "" %>
+               <%= image_tag "bloc_cast_logo.gif", width: "150px", height: "60px", class: "" %>
             <% end %>
           </div>
           <div class="header search">
-              <%= text_field_tag :search, params[:search], placeholder: "Search..." %>
-              <%#= submit_tag "bloc_cast#search", name: nil %>
+            <%= form_tag "/search", method: "get" do %>
+              <%= text_field_tag :query, nil, placeholder: "Search for a TV show...", required: "required" %>
+              <%= submit_tag "Search" %>
+            <% end %>
           </div>
           <div class="header navigation">
-            <%= link_to "About", '', :class => 'navbar-link'  %>
+            <%= link_to "About", "", :class => "navbar-link"  %>
             <% if user_signed_in? %>
-              <%= link_to current_user.email.split('@').first, '', :class => 'navbar-link'  %>
-              <%#= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
-              <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+              <%= link_to current_user.email.split("@").first, "", :class => "navbar-link"  %>
+              <%#= link_to "Edit profile", edit_user_registration_path, :class => "navbar-link" %>
+              <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => "navbar-link"  %>
             <% else %>
-              <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> -
-              <%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %>
+              <%= link_to "Sign Up", new_user_registration_path, :class => "navbar-link"  %> -
+              <%= link_to "Sign In", new_user_session_path, :class => "navbar-link"  %>
             <% end %>
           </div>
         </div>

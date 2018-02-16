@@ -15,7 +15,6 @@
  */
 
 @import "bootstrap";
-// @import "bloc_cast";
 
 .page-header {
     background-color: whitesmoke;
@@ -25,16 +24,12 @@
         display: inline-block;
     }
 
-    .logo {
-        // background-color: green;
-    }
-
     .search {
         margin-left: 10%;
         width: 30%;
 
-        #search {
-            width: 100%;
+        #query {
+            width: 80%;
         }
     }
 

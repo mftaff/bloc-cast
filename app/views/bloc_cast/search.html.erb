@@ -1,2 +1,16 @@
-<h1>BlocCast#search</h1>
-<p>Find me in app/views/bloc_cast/search.html.erb</p>
+<div class="row">
+    <div class="col-md-7">
+        <h1>Search Results</h1>
+
+        <div class="popular-shows">
+            <% if @search_results["results"].empty? %>
+                <p>No matches found for: '<%= params[:query].to_s %>'</p>
+            <% end %>
+            <%= render partial: "parse_show_list", locals: {show_array: @search_results["results"]} %>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <%= render partial: "recommended_shows", locals: {} %>
+    </div>
+</div>
+

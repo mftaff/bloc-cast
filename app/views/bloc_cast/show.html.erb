@@ -4,7 +4,7 @@
             <%= image_tag "http://image.tmdb.org/t/p/w300#{@tv_show["backdrop_path"]}", class: "big-image" %>
             <h1><%= @tv_show["name"] %></h1>
             <small class="production-status"><%= in_production? @tv_show["in_production"] %></small>
-            <p>Created by: <%= @tv_show["created_by"].map {|creator| creator["name"]}.join ', ' %></p>
+            <p>Created by: <%= @tv_show["created_by"].map {|creator| creator["name"]}.join ", " %></p>
             <% @tv_show["genres"].each do |genre| %>
                 <div class="genre"><%= genre["name"] %></div>
             <% end %>
@@ -15,13 +15,13 @@
                 <% @tv_show["seasons"].each do |season| %>
                     <div class="season">
                         <%= image_tag "http://image.tmdb.org/t/p/w92#{season["poster_path"]}", class: "small-image" %>
-                        <small><%= "Season #{season["season_number"]}, #{pluralize(season["episode_count"], 'Episode')}" %></small>
+                        <small><%= "Season #{season["season_number"]}, #{pluralize(season["episode_count"], "Episode")}" %></small>
                     </div>
                 <% end %>
             </div>
         </div>
     </div>
     <div class="col-md-5">
-        <%= render partial: 'recommended_shows', locals: {} %>
+        <%= render partial: "recommended_shows", locals: {} %>
     </div>
 </div>

@@ -1,6 +1,6 @@
 <% show_array.each do |show| %>
     <div class="tv-show">
-        <%= image_tag "http://image.tmdb.org/t/p/w185#{show["poster_path"]}", class: "big-image" %>
+        <%= image_tag "http://image.tmdb.org/t/p/w185#{show["poster_path"]}", alt: "No Image Provided", class: "big-image" %>
         <div class="show-content">
             <%= link_to show["name"], show_path(tv_id: show["id"]), class: "show-name-link" %>
             <div class="genres">

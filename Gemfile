@@ -36,7 +36,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'figaro'
 gem 'devise'
 gem 'httparty'
-gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.0.0.beta2.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
