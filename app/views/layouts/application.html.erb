@@ -20,7 +20,7 @@
           <div class="header search">
             <%= form_tag "/search", method: "get" do %>
               <%= text_field_tag :query, nil, placeholder: "Search for a TV show...", required: "required" %>
-              <%= submit_tag "Search" %>
+              <%= submit_tag "Search", id: "submit-search" %>
             <% end %>
           </div>
           <div class="header navigation">
@@ -49,6 +49,23 @@
       <% end %>
 
       <%= yield %>
+
+      <footer class="page-footer text-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h6>Powered by: <%= link_to "The Movie Database", "https://www.themoviedb.org/" %></h6>
+              <p>Check out TMDB's API <%= link_to "docs", "https://developers.themoviedb.org/3" %></p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container-fluid">
+            <small>Created By: <%= link_to "M Taffel", "https://github.com/mftaff/" %></small>
+          </div>
+        </div>
+      </footer>
+
     </div>
   </body>
 </html>

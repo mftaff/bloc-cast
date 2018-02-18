@@ -16,6 +16,15 @@
 
 @import "bootstrap";
 
+a {
+    color: #367d7a;
+
+    &:hover {
+        text-decoration: none;
+        color: #0000a3;
+    }
+}
+
 .page-header {
     background-color: whitesmoke;
     padding: 0.5em;
@@ -30,6 +39,22 @@
 
         #query {
             width: 80%;
+            border-radius: 10px;
+            padding: 3px;
+            border: 2px solid #b8c9c3;
+        }
+
+        #submit-search {
+            background-color: white;
+            border-radius: 10px;
+            border-color: #b8c9c3;
+            padding: 3px;
+
+            &:hover {
+                cursor: pointer;
+                cursor: -webkit-pointer;
+                cursor: -moz-pointer;
+            }
         }
     }
 

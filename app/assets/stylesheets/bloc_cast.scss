@@ -5,6 +5,7 @@
 .tv-show {
     position: relative;
     padding: 1em;
+    margin-top: 3em;
     background-color: #cacaca;
     border: 2px solid #ededed;
     border-radius: 20px;
@@ -67,4 +68,13 @@
         right: 2%;
         top: 2%;
     }
+}
+
+.about {
+    position: relative;
+    padding: 1em;
+    background-color: #cacaca;
+    border: 2px solid #ededed;
+    border-radius: 20px;
+    min-height: 314px;
 }
