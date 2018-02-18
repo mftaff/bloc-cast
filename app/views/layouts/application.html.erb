@@ -24,7 +24,7 @@
             <% end %>
           </div>
           <div class="header navigation">
-            <%= link_to "About", "", :class => "navbar-link"  %>
+            <%= link_to "About", about_path, :class => "navbar-link"  %>
             <% if user_signed_in? %>
               <%= link_to current_user.email.split("@").first, "", :class => "navbar-link"  %>
               <%#= link_to "Edit profile", edit_user_registration_path, :class => "navbar-link" %>

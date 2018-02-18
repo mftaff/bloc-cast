@@ -1,0 +1,80 @@
+<h1>BlocCast</h1>
+<h2>A TV Discovery Webapp</h2>
+<h4>Doing the finding for you - search for shows, and let us make the connections.</h4>
+<small>Powered by <%= link_to 'The Movie DB', 'https://www.themoviedb.org/' %></small>
+
+<p>To learn more - check out the <%= link_to 'README', 'https://github.com/mftaff/bloc-cast#bloccast' %>
+on BlocCast's <%= link_to 'GitHub', 'https://github.com/mftaff/bloc-cast' %> page.</p>
+
+<!--<h5>The Problem</h5>-->
+
+<!--<p>This web app proof of concept is a response to the certification challenge at-->
+<!--the end of the <%= link_to 'Bloc.io', 'https://www.bloc.io' %> Software Developer-->
+<!--Course. The challenge was to build a website that uses The Movie DB's API to-->
+<!--allow users to see a list of popular TV shows, as well as search for them. Also,-->
+<!--upon clicking on a specific show, a user should see more information about that show.-->
+<!--These features should be wrapped with a full test suite, a comprehensive UI/UX,-->
+<!--be built with a full stack, and finally be deployed to production.</p>-->
+
+<!--<h5>The Solution</h5>-->
+
+<!--<p><%= link_to 'BlocCast', 'https://bloc-cast.herokuapp.com/' %> satisfies the -->
+<!--above challenge in a straightforward, and simple manner. Upon landing on the-->
+<!--BlocCast's homepage a guest will see a list of the most popular TV shows, as-->
+<!--well as a list of New TV shows all having first aired within the last year.-->
+<!--This same guest can search for TV shows from any page of the website, as well-->
+<!--as click on any TV show to see more details about that show. At any time a-->
+<!--guest can choose to sign up/in. Once a user has signed up, BlocCast will start-->
+<!--saving the users search history. This data will be used to generate a list of-->
+<!--recommended TV shows, that will replace the list of New TV shows seen by a guest.</p>-->
+
+<!--<p>A slightly more technical Description of BlocCast follows:</p>-->
+
+<!--<h6>Nav:</h6>-->
+<!--<ul>-->
+<!--    <li>Logo: Links to '/index' aka 'root_path'</li>-->
+<!--    <li>Search: Allows searching for TV shows</li>-->
+<!--    <li>About: Links to About page (The one you are now reading)</li>-->
+<!--    <li>User Controls: View Profile, and Sign in/up/out</li>-->
+<!--</ul>-->
+
+<!--<h6>Website's Pages:</h6>-->
+<!--<ul>-->
+<!--    <li>-->
+<!--        Index: Displays a list of most popular TV shows, as well as a list of-->
+<!--        recommended shows or new shows (depending on if user is signed in.)-->
+<!--    </li>-->
+<!--    <li>-->
+<!--        Search: Displays a list of shows returned from the search query, as well-->
+<!--        as the recommended/new show list.-->
+<!--    </li>-->
+<!--    <li>-->
+<!--        Show: Display more info about a specific show, again the recommended/new-->
+<!--        show list is displayed.-->
+<!--    </li>-->
+<!--    <li>-->
+<!--        About: The page you are now reading.-->
+<!--    </li>-->
+<!--</ul>-->
+
+<!--<h5>Design Choices</h5>-->
+
+<!--<p>I chose to write BlocCast using Rails, and deploy using Heroku. The database used-->
+<!--is PostgreSQL, and for the frontend I used Bootstrap as the baseline.</p>-->
+
+<!--<p>My decision for the above choices are as follows: Rails provides a simple, streamlined,-->
+<!--and most importantly - comprehensive system to build a full stack web app, all with-->
+<!--minimal setup and configuration. As I saw time and again while completing the Bloc curriculum,-->
+<!--the use of Rails for webapp building makes the process go from a complex one, to a straightforward one.-->
+<!--By the same reasoning I chose to deploy with Heroku. The level of integration between Rails-->
+<!--and Heroku, make the launching process intuitive, as opposed to grueling :-) My database-->
+<!--choice was governed by my decision to use Heroku - hence PostgreSQL, and my choice of-->
+<!--adding Bootstrap for the frontend, was to help with smooth transitioning of screen sizes.</p>-->
+
+<!--<p>A few things I would add to this project with time are: Integrating more media types-->
+<!--not just TV shows (this is a relatively simple process), but mainly I would want to-->
+<!--improve my algorithm for generating the recommended TV show list. In its current state,-->
+<!--the algorithm stores the count of every genre's occurrences in search results for any-->
+<!--given user. To improve this, I would want to store more than just genre. Perhaps storing-->
+<!--the cast or creators. On that same thread I would want to extend this algorithm to guest-->
+<!--users - storing data for a given session, as opposed to for a given user.</p>-->

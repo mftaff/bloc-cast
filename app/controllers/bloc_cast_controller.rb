@@ -1,5 +1,5 @@
 class BlocCastController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show, :search]
+  skip_before_action :authenticate_user!, only: [:index, :show, :search, :about]
   before_action :get_recommended_shows, only: [:index, :show, :search]
 
   def index
@@ -22,6 +22,9 @@ class BlocCastController < ApplicationController
     else
       flash[:alert] = "Uh oh! Something went wrong.."
     end
+  end
+
+  def about
   end
 
   private
