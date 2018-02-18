@@ -17,11 +17,8 @@ class BlocCastController < ApplicationController
     
     if response.success?
       @search_results = response
-      # @returned_genres = @search_results["results"].first(5)
 
-      # if current_user
-      #   current_user.update(searched_genres: )
-      # end
+      current_user.update_genre_list(@search_results["results"].first(7)) if current_user
     else
       flash[:alert] = "Uh oh! Something went wrong.."
     end
@@ -30,7 +27,7 @@ class BlocCastController < ApplicationController
   private
 
   def get_recommended_shows
-    if current_user # Signed in users will see a list of shows based on their search history
+    if current_user && !current_user.searched_genres.nil? # Signed in users will see a list of shows based on their search history
       @recommended_shows = HTTParty.get("https://api.themoviedb.org/3/discover/tv?api_key=#{ENV["TMDB_API_KEY"]}&sort_by=popularity.desc&with_genres=#{current_user.most_searched_genres}")
     else # Guest users will see a shows created in the past year
       @recommended_shows = HTTParty.get("https://api.themoviedb.org/3/discover/tv?api_key=#{ENV["TMDB_API_KEY"]}&sort_by=popularity.desc&first_air_date.gte=#{1.year.ago.strftime("%Y-%m-%d")}")
