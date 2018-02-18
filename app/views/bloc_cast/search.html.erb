@@ -10,7 +10,9 @@
         </div>
     </div>
     <div class="col-md-5">
-        <%= render partial: "recommended_shows", locals: {} %>
+        <h2>Recommended Shows</h2>
+
+        <%= render partial: "parse_show_list", locals: {show_array: @recommended_shows["results"]} %>
     </div>
 </div>
 

@@ -1,5 +1,6 @@
 class BlocCastController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :search]
+  before_action :get_recommended_shows, only: [:index, :show, :search]
 
   def index
     response = HTTParty.get("https://api.themoviedb.org/3/discover/tv?api_key=#{ENV["TMDB_API_KEY"]}&sort_by=popularity.desc")
@@ -13,6 +14,26 @@ class BlocCastController < ApplicationController
 
   def search
     response = HTTParty.get("https://api.themoviedb.org/3/search/tv?api_key=#{ENV["TMDB_API_KEY"]}&query=#{URI.encode params[:query].to_s}")
-    @search_results = response
+    
+    if response.success?
+      @search_results = response
+      # @returned_genres = @search_results["results"].first(5)
+
+      # if current_user
+      #   current_user.update(searched_genres: )
+      # end
+    else
+      flash[:alert] = "Uh oh! Something went wrong.."
+    end
+  end
+
+  private
+
+  def get_recommended_shows
+    if current_user # Signed in users will see a list of shows based on their search history
+      @recommended_shows = HTTParty.get("https://api.themoviedb.org/3/discover/tv?api_key=#{ENV["TMDB_API_KEY"]}&sort_by=popularity.desc&with_genres=#{current_user.most_searched_genres}")
+    else # Guest users will see a shows created in the past year
+      @recommended_shows = HTTParty.get("https://api.themoviedb.org/3/discover/tv?api_key=#{ENV["TMDB_API_KEY"]}&sort_by=popularity.desc&first_air_date.gte=#{1.year.ago.strftime("%Y-%m-%d")}")
+    end
   end
 end
