@@ -48,7 +48,7 @@ list is displayed.
 # Design Choices
 
 I chose to write BlocCast using Rails, and to deploy using Heroku. The database used
-is PostgreSQL, and for the frontend I used Bootstrap as the baseline.
+is PostgreSQL, the test suite used is Minitest, and for the frontend I used Bootstrap as the baseline.
 
 My decision for the above choices are as follows: Rails provides a simple, streamlined,
 and most importantly - comprehensive system to build a full stack web app, all with
@@ -56,8 +56,9 @@ minimal setup and configuration. As I saw time and again while completing the Bl
 the use of Rails for webapp building makes the process go from a complex one, to a straightforward one.
 By the same reasoning I chose to deploy with Heroku. The level of integration between Rails
 and Heroku make the launching process intuitive, as opposed to grueling :-) My database
-choice was governed by my decision to use Heroku - hence PostgreSQL, and my choice of
-adding Bootstrap for the frontend, was to help with smooth transitioning of screen sizes.
+choice was governed by my decision to use Heroku - hence PostgreSQL. I used Minitest
+as I like that it mimics ruby syntax, and my choice of adding Bootstrap for the frontend,
+was to help with smooth transitioning of screen sizes.
 
 This project has great potential for additional/expanded features.
 
