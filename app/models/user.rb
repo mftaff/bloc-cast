@@ -26,6 +26,10 @@ class User < ApplicationRecord
 
   def most_searched_genres
     # Return string of top 3 genre_ids in user search history
-    self.searched_genres.sort_by { |k,v| -v }.first(3).to_h.map {|k,v| k if v > 0.5}.join(',')
+    if !self.searched_genres.nil?
+      self.searched_genres.sort_by { |k,v| -v }.first(3).to_h.map {|k,v| k if v > 0.5}.join(',')
+    else
+      ""
+    end
   end
 end

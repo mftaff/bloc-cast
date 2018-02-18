@@ -3,7 +3,7 @@
         <h1>Top Rated Shows</h1>
 
         <div class="popular-shows">
-            <%= render partial: "parse_show_list", locals: {show_array: @popular_shows} %>
+            <%= render partial: "parse_show_list", locals: {show_array: @popular_shows["results"]} %>
         </div>
     </div>
     <div class="col-md-5">

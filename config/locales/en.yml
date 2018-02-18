@@ -30,4 +30,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  alert:
+    generic: Uh oh! Something went wrong..
+    search_failed: Uh oh! We couldn't complete that search..
+    get_show_failed: Uh oh! We couldn't retrieve that TV show..
+    get_popular_failed: Uh oh! We couldn't get popular TV show list..
+    get_recommended_failed: Uh oh! We couldn't get recommended TV show list..
