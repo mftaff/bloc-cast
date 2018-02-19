@@ -1,6 +1,6 @@
 class BlocCastController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :search, :about]
-  before_action :get_recommended_shows, only: [:index, :show, :search]
+  before_action :get_recommended_shows, only: [:index, :search]
 
   def index
     response = HTTParty.get("https://api.themoviedb.org/3/discover/tv?api_key=#{ENV["TMDB_API_KEY"]}&sort_by=popularity.desc")
@@ -18,6 +18,7 @@ class BlocCastController < ApplicationController
 
     if response.success?
       @tv_show = response
+      update_recommended_by_show(@tv_show["genres"].map{|genre| genre["id"]}.join(","), @tv_show["id"])
     else
       flash[:alert] = t "alert.get_show_failed"
       redirect_to root_path
@@ -54,6 +55,19 @@ class BlocCastController < ApplicationController
     else
       flash[:alert] = t "alert.get_recommended_failed"
       @recommended_shows = {"results":[]}.stringify_keys
+    end
+  end
+
+  # Update recommended show list to match genres of a specific tv_show
+  # (Used by show view, to display TV shows like the currently viewed one)
+  def update_recommended_by_show(genre_id_string, tv_show_id)
+    response = HTTParty.get("https://api.themoviedb.org/3/discover/tv?api_key=#{ENV["TMDB_API_KEY"]}&sort_by=popularity.desc&with_genres=#{genre_id_string}")
+
+    if response.success?
+      @recommended_shows = response
+      @recommended_shows["results"] = @recommended_shows["results"].first(6).delete_if {|show| show["id"] === tv_show_id }
+    else
+      get_recommended_shows
     end
   end
 end

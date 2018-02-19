@@ -45,6 +45,16 @@ as the recommended/new show list.
 list is displayed.
 - About: Display basic information as well as links to this README.
 
+Recommended TV_Show Algorithm:
+- Guest users will see a list of new TV shows (first aired within past year)
+- Signed in users will see a list of TV shows based on their search history (This
+works by keeping track of which genres show up in their search results, and building
+a list of shows based on the most common genres)
+- From the show view (when viewing a single TV show) Guests and Signed in users
+will see a shorter list of shows based on the genre of the currently viewed TV show
+- In the event that one of these lists returns a bad response, the list will default
+to display the most popular shows
+
 # Design Choices
 
 I chose to write BlocCast using Rails, and to deploy using Heroku. The database used
