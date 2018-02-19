@@ -1,0 +1,44 @@
+<div class="devise-container">
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="form-group">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, class: 'form-control devise-field', autofocus: true %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :password %> <br><i>(leave blank if you don't want to change it)</i><br />
+      <%= f.password_field :password, class: 'form-control devise-field', placeholder: "New Password...", autocomplete: "off" %>
+      <% if @minimum_password_length %>
+        <em><%= @minimum_password_length %> characters minimum</em>
+      <% end %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, class: 'form-control devise-field', placeholder: "Confirm New Password...", autocomplete: "off" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :current_password %> <br><i>(we need your current password to confirm your changes)</i><br />
+      <%= f.password_field :current_password, class: 'form-control devise-field', placeholder: "Enter Current Password...", autocomplete: "off" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "Save Changes", class: 'btn btn-success' %>
+    </div>
+  <% end %>
+
+  <br><h3>Cancel my account</h3>
+
+  <p>Wish to leave us?<br><i>(This will permanently delete your account)</i> <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure you want to delete your account?" }, method: :delete, class: 'btn btn-danger' %></p>
+
+  <%= link_to "Back", :back %>
+</div>
