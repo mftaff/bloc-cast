@@ -9,7 +9,7 @@ Powered by ['The Movie DB'](https://www.themoviedb.org/)
 
 This web app proof of concept is a response to the certification challenge at
 the end of the [Bloc.io](https://www.bloc.io) Software Developer Course. The
-challenge was to build a website that uses The Movie DB's API to allow users to
+challenge is to build a website that uses The Movie DB's API to allow users to
 see a list of popular TV shows, as well as search for them. Upon clicking
 on a specific show, a user should see more information about that show. These
 features should be wrapped with a full test suite, a comprehensive UI/UX, be
@@ -34,18 +34,18 @@ Nav:
 - The Logo: Clicking the logo will link to the home page (index view)
 - Search: Allows searching for TV shows
 - About: Points to the About page (Which contains links to this README)
-- User Controls: View Profile, and Sign in/up/out
+- User Controls: Edit Profile, and Sign in/up/out
 
 Website's Pages:
 - Index: Displays a list of most popular TV shows, as well as a list of
 recommended shows (if the user is signed in) or a list of new shows (if the user is a guest.)
 - Search: Displays a list of shows returned from the search query, as well
 as the recommended/new show list.
-- Show: Display more info about a specific show, again the recommended/new show
+- Show: Display more info about a specific TV show, again the recommended/new show
 list is displayed.
-- About: Display basic information as well as links to this README.
+- About: Display basic site information as well as links to this README.
 
-Recommended TV_Show Algorithm:
+Recommended TV show algorithm:
 - Guest users will see a list of new TV shows (first aired within past year)
 - Signed in users will see a list of TV shows based on their search history (This
 works by keeping track of which genres show up in their search results, and building
@@ -67,7 +67,7 @@ the use of Rails for webapp building makes the process go from a complex one, to
 By the same reasoning I chose to deploy with Heroku. The level of integration between Rails
 and Heroku make the launching process intuitive, as opposed to grueling :-) My database
 choice was governed by my decision to use Heroku - hence PostgreSQL. I used Minitest
-as I like that it mimics ruby syntax, and my choice of adding Bootstrap for the frontend,
+as I like that it mimics ruby syntax, and my choice of adding Bootstrap for the frontend
 was to help with smooth transitioning of screen sizes.
 
 This project has great potential for additional/expanded features.
