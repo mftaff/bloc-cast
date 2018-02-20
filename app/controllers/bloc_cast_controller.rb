@@ -26,8 +26,12 @@ class BlocCastController < ApplicationController
   end
 
   def search
-    response = HTTParty.get("https://api.themoviedb.org/3/search/tv?api_key=#{ENV["TMDB_API_KEY"]}&query=#{URI.encode params[:query].to_s}")
-    
+    if params[:having_genre] # if user clicked on a genre tag
+      response = HTTParty.get("https://api.themoviedb.org/3/discover/tv?api_key=#{ENV["TMDB_API_KEY"]}&with_genres=#{params[:having_genre].to_s}")
+    else # if user entered a query into the search bar
+      response = HTTParty.get("https://api.themoviedb.org/3/search/tv?api_key=#{ENV["TMDB_API_KEY"]}&query=#{URI.encode params[:query].to_s}")
+    end
+
     if response.success?
       @search_results = response
 

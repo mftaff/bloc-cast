@@ -74,8 +74,6 @@ This project has great potential for additional/expanded features.
 
 - The easiest of these would be to add support for other media types in TMDB’s
 API, for example movies, and/or personalities.
-- As part of the above feature, I would also want to add the ability to click
-on a genre tag and see search results for that genre.
 - While the above features would expand the scope of what BlocCast offers, to really
 bring this app to the next level I would want to add a more robust algorithm for
 generating the list of recommended TV shows. Currently, the algorithm stores a

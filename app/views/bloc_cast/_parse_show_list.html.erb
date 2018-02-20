@@ -4,10 +4,8 @@
         <div class="show-content">
             <%= link_to show["name"], show_path(tv_id: show["id"]), class: "show-name-link" %>
             <div class="genres">
-                <% convert_genre(show["genre_ids"]).each do |genre| %>
-                    <% if genre %>
-                        <div class="genre"><%= genre %></div>
-                    <% end %>
+                <% show["genre_ids"].each do |genre_id| %>
+                    <%= build_genre_tag genre_id %>
                 <% end %>
             </div>
 
